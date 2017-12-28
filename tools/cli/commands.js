@@ -853,7 +853,7 @@ main.registerCommand({
 // docker
 ///////////////////////////////////////////////////////////////////////////////
 
-var buildCommands = {
+var dockerCommands = {
   minArgs: 0,
   maxArgs: 1,
   requiresApp: true,
@@ -872,7 +872,7 @@ var buildCommands = {
   catalogRefresh: new catalog.Refresh.Never()
 };
 
-main.registerCommand(_.extend({ name: 'docker' }, buildCommands), function (options) {
+main.registerCommand(_.extend({ name: 'docker' }, dockerCommands), function (options) {
   const exitCode = 1;
   console.log('welcome to docker', options);
   console.log();
