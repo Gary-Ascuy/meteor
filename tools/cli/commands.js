@@ -850,6 +850,37 @@ main.registerCommand({
 });
 
 ///////////////////////////////////////////////////////////////////////////////
+// docker
+///////////////////////////////////////////////////////////////////////////////
+
+var buildCommands = {
+  minArgs: 0,
+  maxArgs: 1,
+  requiresApp: true,
+  options: {
+    debug: { type: Boolean },
+    directory: { type: Boolean },
+    architecture: { type: String },
+    "server-only": { type: Boolean },
+    server: { type: String },
+    // Indicates whether these build is running headless, e.g. in a
+    // continuous integration building environment, where visual niceties
+    // like progress bars and spinners are unimportant.
+    headless: { type: Boolean },
+    verbose: { type: Boolean, short: "v" }
+  },
+  catalogRefresh: new catalog.Refresh.Never()
+};
+
+main.registerCommand(_.extend({ name: 'docker' }, buildCommands), function (options) {
+  const exitCode = 1;
+  console.log('welcome to docker', options);
+  console.log();
+
+  return exitCode;
+});
+
+///////////////////////////////////////////////////////////////////////////////
 // build
 ///////////////////////////////////////////////////////////////////////////////
 
